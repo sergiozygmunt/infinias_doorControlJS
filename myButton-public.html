@@ -1,0 +1,31 @@
+<html>
+<html lang="en">
+<head>
+		<meta charset="utf-8" />
+		<title>OpenDoor</title>
+
+</head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script>
+      function put()
+      {
+        var data = new FormData();
+        data.append("LockStatus", "Unlocked");
+        data.append("DoorIds", "3");
+        data.append("Duration", "25");
+        data.append("username", "[redacted]");
+        data.append("password", "[redacted]");
+        $.ajax(
+        {
+          url: 'http://[redacted]:18779/infinias/ia/Doors',
+          type: 'PUT',
+          contentType: "application/x-www-form-urlencoded",
+          data: data,
+          processData: false
+        })
+    }
+  </script>
+  <body>
+    <input type="button" value="Click me!" onclick="put();">
+  </body>
+</html>
